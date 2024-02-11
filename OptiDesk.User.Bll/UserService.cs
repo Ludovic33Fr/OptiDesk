@@ -1,5 +1,6 @@
 ﻿using OptiDesk.User.Dal;
 using OptiDesk.User.Dto.Pivot;
+using System.Reflection;
 
 namespace OptiDesk.User.Bll
 {
@@ -48,6 +49,16 @@ namespace OptiDesk.User.Bll
             // Formatage du numéro de sécurité sociale
             string numeroSecuriteSociale = $"{region:D2}{anneeNaissance:D2}{numeroUnique:D4}";
             return numeroSecuriteSociale;
+        }
+
+        public bool UpdateClient(int id, Client model)
+        {
+           return userDalSvc.UpdateUser(id, model);
+        }
+
+        public bool DeleteClient(int id)
+        {
+            return userDalSvc.DeleteUser(id);
         }
     }
 }
